@@ -4,7 +4,7 @@ Welcome to the GSM Base Station project! 📡📱
 
 ## Overview
 
-This project allows you to turn your Raspberry Pi 3+ into a GSM base station using [DragonOS PI](https://sourceforge.net/projects/dragonos-pi64), CalypsoBTS, and osmo-nitb-scripts-calypsobts.
+This project allows you to turn your Raspberry Pi 0/2/3+ into a GSM base station using [DragonOS PI](https://sourceforge.net/projects/dragonos-pi64), CalypsoBTS, and osmo-nitb-scripts-calypsobts.
 
 ## Requirements
 
