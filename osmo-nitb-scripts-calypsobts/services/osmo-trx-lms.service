@@ -1,0 +1,11 @@
+[Unit]
+Description=CLOCK
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/src/CalypsoBTS/transceiver -e 1 -a 606 -r99
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

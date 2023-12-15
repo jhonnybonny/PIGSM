@@ -1,0 +1,15 @@
+[Unit]
+Description=Osmocom osmo-bts for osmo-trx
+
+[Service]
+Type=simple
+ExecStart=osmo-bts-trx -c /usr/src/CalypsoBTS/osmo-bts-trx-calypso.cfg -d DRSL:DOML:DLAPDM
+Restart=always
+RestartSec=2
+
+# Let it process messages quickly enough
+CPUSchedulingPolicy=rr
+CPUSchedulingPriority=1
+
+[Install]
+WantedBy=multi-user.target

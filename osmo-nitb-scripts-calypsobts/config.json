@@ -1,0 +1,24 @@
+{
+   "scripts":{
+      "sms":{
+         "enabled": true,
+         "sender_extension": "CrTh",
+         "message":[
+            "TEST SMS"
+         ]
+      },
+      "ussd":{
+         "enabled": true,
+         "ussd_type": 1,
+         "message":[
+            "CrTh.",
+            "TEST ALERT"
+         ]
+      },
+      "call":{
+         "enabled": false,
+         "caller_extension": 666,
+         "voice-file": "tt-monkeys"
+      }
+   }
+}

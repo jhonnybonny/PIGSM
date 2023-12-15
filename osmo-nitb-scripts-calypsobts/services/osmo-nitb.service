@@ -1,0 +1,13 @@
+[Unit]
+Description=OpenBSC Network In the Box (NITB)
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=osmo-nitb --yes-i-really-want-to-run-prehistoric-software -c /usr/src/CalypsoBTS/openbsc.cfg -l /usr/src/CalypsoBTS/hlr.sqlite3 -P -C
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
+
+
