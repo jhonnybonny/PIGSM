@@ -9,6 +9,8 @@ sudo pip3 install smpplib
 cd /usr/src/CalypsoBTS
 sudo dpkg -i *.deb
 sudo ldconfig
+cd /usr/src/osmo-nitb-scripts-calypsobts
+sudo bash install_services.sh
 echo -e "\e[32m
 Done !
 \e[0m"
