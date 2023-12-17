@@ -37,6 +37,12 @@ This project allows you to turn your Raspberry Pi into a GSM base station using 
     cd /usr/src/osmo-nitb-scripts-calypsobts
     sudo bash trx.sh
     ```
+    Press power button (or use script if u solder power button)
+   
+    ```bash
+    sudo python3 phone.py #DIR PIGSM
+    ```
+    
     EDIT ARFCN IN CLOCK !!! ( transceiver -e 1 -a NEARBY_ARFCN -r99 )
     ```bash
     sudo nano /usr/src/osmo-nitb-scripts-calypsobts/services/osmo-trx-lms.service
@@ -46,7 +52,7 @@ This project allows you to turn your Raspberry Pi into a GSM base station using 
     sudo python3 main.py -u
     ```
 
-5. Your GSM base station is UPed!
+6. Your GSM base station is UPed!
 
 ## License
 
