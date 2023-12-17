@@ -1,7 +1,7 @@
 # GSM Base Station on Raspberry Pi
 Welcome to the GSM Base Station project! 📡📱
 
-<img src="https://github.com/jhonnybonny/PIGSM/assets/87495218/7a6192e7-1f3b-4c10-8da5-ccf0e4331170" width="50%" height="50%" alt="IMG_1153">
+<img src="https://github.com/jhonnybonny/PIGSM/assets/87495218/10e2c7a7-5559-4a7c-aa8e-4ca5f3c479a6" width="50%" height="50%" alt="IMG_1153">
 
 ## Overview
 
