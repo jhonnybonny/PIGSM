@@ -11,8 +11,8 @@ This project allows you to turn your Raspberry Pi into a GSM base station using 
 
 - Raspberry Pi 3+/0
 - [DragonOS PI](https://sourceforge.net/projects/dragonos-pi64)
-- [CalypsoBTS (OsmocomBB phones)](https://osmocom.org/projects/baseband/wiki/Phones)
-- [osmo-nitb-scripts-calypsobts](https://github.com/jhonnybonny/osmo-nitb-scripts-calypsobts.git)
+- [OsmocomBB phones](https://osmocom.org/projects/baseband/wiki/Phones)
+- [USB TTL](https://www.aliexpress.com/w/wholesale-cp2102-usb-to-ttl-converter.html)
 
 ## Installation
 
