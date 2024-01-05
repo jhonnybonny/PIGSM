@@ -49,7 +49,7 @@ This project allows you to turn your Raspberry Pi into a GSM base station using 
     ```
     ```bash
     sudo bash install_services.sh
-    sudo python3 main.py -u
+    sudo python3 main.py -u --rmdb
     ```
 
 6. Your GSM base station is UPed!
