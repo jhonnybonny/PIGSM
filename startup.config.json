@@ -1,0 +1,51 @@
+{
+  "apps": [
+    {
+      "name": "phone set",
+      "script": "/usr/src/PIGSM/phone.py",
+      "interpreter": "python3",
+      "exec_mode": "fork",
+      "instances": 1,
+      "autorestart": false,
+      "watch": false,
+      "wait_ready": true,
+      "listen_timeout": 5000
+    },
+    {
+      "name": "trx",
+      "script": "/usr/src/osmo-nitb-scripts-calypsobts/trx.sh",
+      "interpreter": "bash",
+      "exec_mode": "fork",
+      "instances": 1,
+      "autorestart": false,
+      "watch": false,
+      "wait_ready": true,
+      "listen_timeout": 5000
+    },
+    {
+      "name": "phone click",
+      "script": "/usr/src/PIGSM/phone.py",
+      "interpreter": "python3",
+      "exec_mode": "fork",
+      "instances": 1,
+      "autorestart": false,
+      "watch": false,
+      "wait_ready": true,
+      "listen_timeout": 5000
+    },
+    {
+      "name": "main",
+      "cwd": "/usr/src/osmo-nitb-scripts-calypsobts/",
+      "script": "main.py",
+      "args": ["-u","--rmdb"],
+      "interpreter": "python3",
+      "exec_mode": "fork",
+      "instances": 1,
+      "autorestart": false,
+      "watch": false,
+      "max_memory_restart": "1G",
+      "wait_ready": true,
+      "start_delay": 20000
+    }
+  ]
+}
