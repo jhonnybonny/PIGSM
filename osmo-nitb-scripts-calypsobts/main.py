@@ -10,14 +10,12 @@ import argparse
 def signal_handler(sig, frame):
     print('\x1bc')
     stop_services(log=True)
-    if os.path.exists("/usr/src/CalypsoBTS/hlr.sqlite3"):
+    if args.rmdb and os.path.exists("/usr/src/CalypsoBTS/hlr.sqlite3"):
         os.remove("/usr/src/CalypsoBTS/hlr.sqlite3")
 
-    #print("\x1b[2J")
     print("Exiting...")
     time.sleep(2)
     exit(0)
-
 
 def check_root():
     if not os.geteuid() == 0:
@@ -133,7 +131,7 @@ def check_errors(gprs=False, sip=False, service=False):
         #print(s.decode())
         #if b"Failed with result 'exit-code'" in s:
         status = subprocess.Popen(["systemctl", "status", service], stdout=subprocess.PIPE).communicate()[0]
-        if not b"active (running)" in status:
+        if b"active (running)" not in status:
             print( "Somethigs wrong with {0}, see journalctl -b -S {1} -u {0}".format(
                     service,
                    "{0}:{1}:{2}".format(date.hour, date.minute, date.second))
@@ -149,6 +147,9 @@ Script for automaticaly preparing and deploying Osmocom GSM stack.
 
 if __name__ == "__main__" and check_root():
     parser = argparse.ArgumentParser(description=help_message)
+
+    parser.add_argument("--rmdb", action="store_true", default=False,
+                        help="Remove the HLR database file on program exit. (Default=False)")
 
     parser.add_argument("-u", "--interact",
                          action="store_true", dest="user_interaction", default=False,
@@ -168,30 +169,23 @@ if __name__ == "__main__" and check_root():
 
     args = parser.parse_args()
 
-    hlr_path = "/usr/src/CalypsoBTS/hlr.sqlite3"
-    user_interaction = args.user_interaction
-    config = args.config
-    gprs = args.gprs
-    interface = args.interface
-    sip = args.sip
-
     signal.signal(signal.SIGINT, signal_handler)
 
     sdr_check()
-    configure(gprs, sip, interface)
+    configure(args.gprs, args.sip, args.interface)
 
-    run(gprs, sip)
+    run(args.gprs, args.sip)
     check_errors()
-    db = HLR.Database(hlr_path)
+    db = HLR.Database("/usr/src/CalypsoBTS/hlr.sqlite3")
     print("[+] Done")
     time.sleep(3)
 
     while 1:
-        if user_interaction:
+        if args.user_interaction:
             for user in db.get_new_users():
                 extension = user[5]
                 time.sleep(3)
-                user_interact.interact(config, extension)
+                user_interact.interact(args.config, extension)
 
         monitor.update_monitor(db.get_subscribers())
         check_errors()
