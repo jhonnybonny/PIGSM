@@ -49,6 +49,7 @@
     },
     {
       "name": "flet",
+      "cwd": "/usr/src/PIGSM/",
       "script": "flet",
       "args": ["--web", "--port", "80"],
       "exec_mode": "fork",
@@ -56,7 +57,8 @@
       "autorestart": true,
       "watch": false,
       "wait_ready": true,
-      "listen_timeout": 5000
+      "start_delay": 25000
     }
   ]
 }
+
