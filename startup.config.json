@@ -46,6 +46,17 @@
       "max_memory_restart": "1G",
       "wait_ready": true,
       "start_delay": 20000
+    },
+    {
+      "name": "flet",
+      "script": "flet",
+      "args": ["--web", "--port", "80"],
+      "exec_mode": "fork",
+      "instances": 1,
+      "autorestart": true,
+      "watch": false,
+      "wait_ready": true,
+      "listen_timeout": 5000
     }
   ]
 }
