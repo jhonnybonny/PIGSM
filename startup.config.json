@@ -1,0 +1,42 @@
+{
+  "apps": [
+    {
+      "name": "trx",
+      "script": "/usr/src/osmo-nitb-scripts-calypsobts/trx.sh",
+      "interpreter": "bash",
+      "exec_mode": "fork",
+      "instances": 1,
+      "autorestart": false,
+      "watch": false,
+      "wait_ready": true,
+      "listen_timeout": 5000
+    },
+    {
+      "name": "main",
+      "cwd": "/usr/src/osmo-nitb-scripts-calypsobts/",
+      "script": "main.py",
+      "args": ["-u","--rmdb"],
+      "interpreter": "python3",
+      "exec_mode": "fork",
+      "instances": 1,
+      "autorestart": true,
+      "watch": false,
+      "max_memory_restart": "1G",
+      "wait_ready": true,
+      "start_delay": 20000
+    },
+    {
+      "name": "flet",
+      "cwd": "/usr/src/PIGSM/",
+      "interpreter": "flet",
+      "script": "main.py",
+      "args": ["--web", "--port", "80"],
+      "exec_mode": "fork",
+      "instances": 1,
+      "autorestart": true,
+      "watch": true,
+      "wait_ready": true,
+      "start_delay": 25000
+    }
+  ]
+}
